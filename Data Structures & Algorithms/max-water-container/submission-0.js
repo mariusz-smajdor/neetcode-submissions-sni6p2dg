@@ -1,0 +1,20 @@
+class Solution {
+    /**
+     * @param {number[]} heights
+     * @return {number}
+     */
+    maxArea(heights) {
+        let l = 0,
+            r = heights.length - 1
+        let res = 0
+        
+        while (l < r) {
+            res = Math.max(
+                res, Math.min(heights[l], heights[r]) * (r - l))
+            console.log(heights[l], heights[r], Math.min(heights[l], heights[r]) * (r - l))
+            if (heights[l] > heights[r]) r--
+            else l++
+        }
+        return res
+    }
+}
